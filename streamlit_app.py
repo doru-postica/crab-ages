@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
 
 # import necessary libraries
 import numpy as np
@@ -11,20 +9,20 @@ import joblib
 import xgboost as xgb
 from sklearn.neighbors import NearestNeighbors
 
-from create_new_features import create_new_features # local files
-from create_polynomials import create_polynomials # local files
+from custom_functions.create_new_features import create_new_features # local files
+from custom_functions.create_polynomials import create_polynomials # local files
 
 # functions needed for app to run
 def load_data():
-    column_names_initial_input = joblib.load('columns_for_input.pkl')
-    neighbors_database = joblib.load('database_for_kneighbors.pkl')
-    data_similarity_thresholds = joblib.load('thresholds_for_data_similarity.pkl')
+    column_names_initial_input = joblib.load('fit_pickles/columns_for_input.pkl')
+    neighbors_database = joblib.load('fit_pickles/database_for_kneighbors.pkl')
+    data_similarity_thresholds = joblib.load('fit_pickles/thresholds_for_data_similarity.pkl')
     return (column_names_initial_input, neighbors_database, data_similarity_thresholds)
 
 def load_models():
-    fit_imputer = joblib.load('fit_imputer.pkl')
-    fit_scaler = joblib.load('fit_scaler.pkl')
-    fit_model = joblib.load('MAPIE_fit_model.pkl')
+    fit_imputer = joblib.load('fit_pickles/fit_imputer.pkl')
+    fit_scaler = joblib.load('fit_pickles/fit_scaler.pkl')
+    fit_model = joblib.load('fit_pickles/MAPIE_fit_model.pkl')
     return (fit_imputer, fit_scaler, fit_model)
 
 def get_streamlit_input():
