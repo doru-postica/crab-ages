@@ -2,5 +2,5 @@ numpy
 pandas
 joblib
 xgboost
-sklearn
+scikit-learn
 mapie
